@@ -26,4 +26,16 @@ impl Position {
     pub const fn y(&self) -> f64 {
         self.vec.y
     }
+
+    /// Returns the **square** distance between two points.
+    pub fn dist2(&self, other: Self) -> f64 {
+        (self.x() - other.x()).powi(2) + (self.y() - other.y()).powi(2)
+    }
+
+    /// Returns the distance between two points.
+    ///
+    /// If the square distance can be used instead, prefer `dist2`.
+    pub fn dist(&self, other: Self) -> f64 {
+        self.dist2(other).sqrt()
+    }
 }

@@ -1,8 +1,4 @@
-use crate::display::{Color, Screen};
-
-pub trait Draw {
-    fn draw_on(&self, screen: &mut Screen, color: Color);
-}
+use super::base::Position;
 
 pub struct Rectangle {
     x1: f64,
@@ -12,3 +8,10 @@ pub struct Rectangle {
 }
 
 mod rectangle;
+
+pub struct Circle {
+    radius: f64,
+    center: Position,
+}
+
+mod circle;

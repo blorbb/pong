@@ -2,7 +2,10 @@ use std::num::NonZeroU32;
 
 use pong::{
     display::{Color, Screen},
-    geometry::{base::Position, shapes::Rectangle},
+    geometry::{
+        base::Position,
+        shapes::{Circle, Rectangle},
+    },
 };
 use winit::{
     event::{Event, WindowEvent},
@@ -57,6 +60,8 @@ fn main() {
 
 fn redraw(screen: &mut Screen) {
     let rect = Rectangle::from_corners(Position::new(100.0, 150.0), Position::new(200.0, 500.0));
+    let circle = Circle::from_center_radius(Position::new(300.0, 350.0), 50.0);
 
-    screen.draw(rect, Color::from_rgb(200, 240, 100))
+    screen.draw(rect, &Color::from_rgb(200, 240, 100));
+    screen.draw(circle, &Color::from_rgb(100, 200, 200));
 }
